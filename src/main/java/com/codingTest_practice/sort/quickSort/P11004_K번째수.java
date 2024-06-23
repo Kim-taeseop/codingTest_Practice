@@ -3,6 +3,9 @@ package com.codingTest_practice.sort.quickSort;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+
 
 /*
 - 문제
@@ -11,40 +14,51 @@ import java.io.InputStreamReader;
 - 입력
 1번째 줄 : N(1<=N<=5000000)과 K(1<=K<=N)
 2번째 줄 : A1, A2, ... An 이 주어짐 (-10^9<=Ai<=10^9)
+
+- 분석
+미완성
+어려움
 */
 public class P11004_K번째수 {
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(bf.readLine());
-        int K = Integer.parseInt(bf.readLine());
-
-        long[] A = new long[N];
+        StringTokenizer st = new StringTokenizer(bf.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int K = Integer.parseInt(st.nextToken());
+        st = new StringTokenizer(bf.readLine());
+        int[] A = new int[N];
         for(int i=0; i<N; i++){
-            A[i] = Integer.parseInt(bf.readLine());
+            A[i] = Integer.parseInt(st.nextToken());
         }
+        quickSort(A, 0, N-1, K-1);
 
-        int pivot = N-1;
-        int start = 0;
-        int end = N-2;
-        while(start != end) {
-            if (A[start] < A[pivot]) {
-                start++;
-            }
-            if (A[end] > A[pivot]) {
-                end--;
-            }
-            if (A[start] > A[pivot] && A[end] < A[pivot]) {
-                long temp = A[start];
-                A[start] = A[end];
-                A[end] = temp;
-                start++;
-                end--;
-            }
+    }
+
+    // 미완성
+    private static void quickSort(int[] A, int S, int E, int K) {
+        if(S < E){
+            int pivot = partition(A,S,E);
         }
+    }
 
-        long data = A[pivot];
-        if(A[pivot] > A[start]){
+    // 미완성
+    private static int partition(int[] A, int S, int E) {
+        if(S+1 == E){
+            if(A[S] > A[E]){
+                swap(A,S,E);
+                return E;
+            }
+            int M = (S+E) /2;
+            swap(A,S,M);
+
 
         }
+        return 0;
+    }
+
+    public static void swap(int[] A, int i, int j){
+        int temp = A[i];
+        A[i] = A[j];
+        A[j] = temp;
     }
 }
