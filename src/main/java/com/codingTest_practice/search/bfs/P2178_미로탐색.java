@@ -56,7 +56,6 @@ public class P2178_미로탐색 {
         visited[i][j] = true;
         while(!queue.isEmpty()){
             int now[] = queue.poll();       // x,y
-            visited[i][j] = true;
             for(int k=0; k<4; k++){ // 상하좌우 탐색
                 int x = now[0] + dx[k];
                 int y = now[1] + dy[k];
