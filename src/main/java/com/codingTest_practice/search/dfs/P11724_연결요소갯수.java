@@ -20,22 +20,23 @@ import java.util.StringTokenizer;
 public class P11724_연결요소갯수 {
     static boolean[] visited;
     static ArrayList<Integer>[] A;
+
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(bf.readLine());
 
         int n = Integer.parseInt(st.nextToken());   // 노드의 갯수
         int m = Integer.parseInt(st.nextToken());   // 에지의 갯수
-        visited = new boolean[n+1]; // 방문 배열
-        A = new ArrayList[n+1];     // 그래프 데이터 저장 인접 리스트
+        visited = new boolean[n + 1]; // 방문 배열
+        A = new ArrayList[n + 1];     // 그래프 데이터 저장 인접 리스트
 
         // A 인접 리스트의 각 ArrayList 초기화
-        for(int i=1; i<n+1; i++){
+        for (int i = 1; i < n + 1; i++) {
             A[i] = new ArrayList<Integer>();
         }
 
         // A 인접 리스트에 그래프 데이터 저장
-        for(int i=0; i<m; i++){
+        for (int i = 0; i < m; i++) {
             st = new StringTokenizer(bf.readLine());
             int s = Integer.parseInt(st.nextToken());   // 시작점
             int e = Integer.parseInt(st.nextToken());   // 종료점
@@ -44,8 +45,8 @@ public class P11724_연결요소갯수 {
         }
 
         int count = 0;  // 갯수
-        for(int i=1; i<n+1; i++){
-            if(!visited[i]) {
+        for (int i = 1; i < n + 1; i++) {
+            if (!visited[i]) {
                 count++;
                 DFS(i);
             }
@@ -54,12 +55,12 @@ public class P11724_연결요소갯수 {
     }
 
     private static void DFS(int v) {
-        if(visited[v]){
+        if (visited[v]) {
             return;
         }
         visited[v] = true;
-        for(int i : A[v]) {
-            if(!visited[i]){
+        for (int i : A[v]) {
+            if (!visited[i]) {
                 DFS(i);
             }
         }
