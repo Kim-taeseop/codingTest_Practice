@@ -15,36 +15,37 @@ N의 자리 숫자 중 신기한 소수를 오름차순 정렬해 1줄에 1개�
 */
 public class P2023_신기한소수 {
     static int N;
-    public static void main(String[] args){
-        Scanner sc= new Scanner(System.in);
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         N = sc.nextInt();
 
-        DFS(2,1);
-        DFS(3,1);
-        DFS(5,1);
-        DFS(7,1);
+        DFS(2, 1);
+        DFS(3, 1);
+        DFS(5, 1);
+        DFS(7, 1);
     }
 
-    static void DFS(int s, int v){
-        if(v == N){
-            if(PRI(s)){
+    static void DFS(int s, int v) {
+        if (v == N) {
+            if (PRI(s)) {
                 System.out.println(s);
             }
             return;
         }
 
-        for(int i =1; i<=9; i++){
-            if(i%2 == 0){
+        for (int i = 1; i <= 9; i++) {
+            if (i % 2 == 0) {
                 continue;
             }
-            if(PRI(s*10 +i)){
-                DFS(s*10 + i, v+1);
+            if (PRI(s * 10 + i)) {
+                DFS(s * 10 + i, v + 1);
             }
         }
     }
 
     static boolean PRI(int s) {
-        for(int i =2; i<=s/2; i++) {
+        for (int i = 2; i <= s / 2; i++) {
             if (s % i == 0) {
                 return false;
             }
