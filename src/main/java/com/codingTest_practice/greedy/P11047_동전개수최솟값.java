@@ -1,4 +1,6 @@
-package com.codingTest_practice.dataStructure;
+package com.codingTest_practice.greedy;
+
+import java.util.Scanner;
 
 /*
 - 문제
@@ -13,7 +15,23 @@ package com.codingTest_practice.dataStructure;
 1번째 줄에 K원을 만드는데 필요한 동전 개숫의 최솟값을 출력.
 */
 public class P11047_동전개수최솟값 {
-    public static void main(String[] args){
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int K = sc.nextInt();
 
+        int[] A = new int[N];
+        for (int i = 0; i < N; i++) {
+            A[i] = sc.nextInt();
+        }
+
+        int count = 0;
+        for (int i = N - 1; i >= 0; i--) {
+            if(A[i] <= K) {
+                count += K / A[i];
+                K = K % A[i];
+            }
+        }
+        System.out.println(count);
     }
 }
