@@ -29,26 +29,26 @@ public class P11286_절댓값힙구현 {
         int N = Integer.parseInt(bf.readLine());
 
         // 헷갈림.
-        PriorityQueue<Integer> queue = new PriorityQueue<>((o1, o2) ->{
+        PriorityQueue<Integer> queue = new PriorityQueue<>((o1, o2) -> {
             int first_abs = Math.abs(o1);
             int second_abs = Math.abs(o2);
             // 절댓값이 같은 경우 음수 우선
-            if(first_abs == second_abs) {
+            if (first_abs == second_abs) {
                 return o1 > o2 ? 1 : -1;
             }
             // 절댓값이 작은 데이터 우선
             return first_abs - second_abs;
         });   // 우선순위 큐 Integer 기준 설정 없으면 오름차순
 
-        for(int i=0; i<N; i++){
+        for (int i = 0; i < N; i++) {
             int request = Integer.parseInt(bf.readLine());
-            if(request == 0){
-                if(queue.isEmpty()){
+            if (request == 0) {
+                if (queue.isEmpty()) {
                     System.out.println("0");
-                }else {
+                } else {
                     System.out.println(queue.poll());
                 }
-            }else {
+            } else {
                 queue.add(request);
             }
         }

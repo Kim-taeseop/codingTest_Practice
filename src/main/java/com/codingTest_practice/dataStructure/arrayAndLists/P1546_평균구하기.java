@@ -21,14 +21,16 @@ public class P1546_평균구하기 {
         int N = sc.nextInt();
         int[] score = new int[N];
 
-        for(int i=0; i<N; i++) {
+        for (int i = 0; i < N; i++) {
             score[i] = sc.nextInt();
         }
 
         long sum = 0;
         long max = 0;
-        for(int i=0; i<N; i++){
-            if(score[i]>max){max = score[i];}
+        for (int i = 0; i < N; i++) {
+            if (score[i] > max) {
+                max = score[i];
+            }
             sum += score[i];
         }
 

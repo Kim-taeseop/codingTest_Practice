@@ -26,12 +26,12 @@ public class P2018_연속된자연수합 {
         int sIndex = 1;
         int fIndex = 1;
 
-        while(fIndex != N) {
+        while (fIndex != N) {
             if (sum < N) {
                 fIndex++;
                 sum += fIndex;
             } else if (sum == N) {
-                count ++;
+                count++;
                 fIndex++;
                 sum += fIndex;
             } else {
