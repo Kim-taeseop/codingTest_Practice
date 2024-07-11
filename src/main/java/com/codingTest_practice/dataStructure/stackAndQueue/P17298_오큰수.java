@@ -30,11 +30,11 @@ public class P17298_오큰수 {
 
         int[] A = new int[N];
         st = new StringTokenizer(bf.readLine());
-        for(int i=0; i<N; i++){
+        for (int i = 0; i < N; i++) {
             A[i] = Integer.parseInt(st.nextToken());
         }
         Stack<Integer> stack = new Stack<>();
-        int index =0;
+        int index = 0;
         stack.push(index++);
 
         st = new StringTokenizer(bf.readLine());

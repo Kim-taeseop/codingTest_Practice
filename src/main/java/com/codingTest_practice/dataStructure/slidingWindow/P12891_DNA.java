@@ -27,6 +27,7 @@ public class P12891_DNA {
     static int[] myArr;
     static int[] checkArr;
     static int checkSecret;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -36,31 +37,31 @@ public class P12891_DNA {
         checkArr = new int[4];    // 조건
         myArr = new int[4];       // 현재 부분 문자열이 조건에 얼마나 만족하는지
         char[] A = new char[S];     // DNA 문자열
-        checkSecret =0; // 4개의 문자열중 몇개의 조건에 만족하는지 => 4가 되어야 함.
+        checkSecret = 0; // 4개의 문자열중 몇개의 조건에 만족하는지 => 4가 되어야 함.
 
         A = br.readLine().toCharArray();
         st = new StringTokenizer(br.readLine());
-        for(int i=0; i<4; i++){
+        for (int i = 0; i < 4; i++) {
             checkArr[i] = Integer.parseInt(st.nextToken());
-            if(checkArr[i] == 0){
-                checkSecret ++;
+            if (checkArr[i] == 0) {
+                checkSecret++;
             }
         }
 
-        for(int i=0; i<P; i++){ // 부분문자열 처음 받을때 세팅
+        for (int i = 0; i < P; i++) { // 부분문자열 처음 받을때 세팅
             Add(A[i]);
         }
 
-        if(checkSecret ==4) {
+        if (checkSecret == 4) {
             result++;
         }
 
         // 슬라이딩 윈도우 (1칸 갔을때 부터 시작)
-        for(int i=P; i<S; i++){
-            int j = i-P;
+        for (int i = P; i < S; i++) {
+            int j = i - P;
             Add(A[i]);
             Remove(A[j]);
-            if(checkSecret ==4) {
+            if (checkSecret == 4) {
                 result++;
             }
         }
@@ -72,28 +73,28 @@ public class P12891_DNA {
     private static void Remove(char c) {
         switch (c) {
             case 'A':
-                if(myArr[0] == checkArr[0]) {
+                if (myArr[0] == checkArr[0]) {
                     checkSecret--;
                 }
-                myArr[0] --;
+                myArr[0]--;
                 break;
             case 'C':
-                if(myArr[1] == checkArr[1]) {
+                if (myArr[1] == checkArr[1]) {
                     checkSecret--;
                 }
-                myArr[1] --;
+                myArr[1]--;
                 break;
             case 'G':
-                if(myArr[2] == checkArr[2]) {
+                if (myArr[2] == checkArr[2]) {
                     checkSecret--;
                 }
-                myArr[2] --;
+                myArr[2]--;
                 break;
             case 'T':
-                if(myArr[3] == checkArr[3]) {
+                if (myArr[3] == checkArr[3]) {
                     checkSecret--;
                 }
-                myArr[3] --;
+                myArr[3]--;
                 break;
         }
     }
@@ -102,25 +103,25 @@ public class P12891_DNA {
         switch (c) {
             case 'A':
                 myArr[0]++;
-                if(myArr[0] == checkArr[0]) {
+                if (myArr[0] == checkArr[0]) {
                     checkSecret++;
                 }
                 break;
             case 'C':
                 myArr[1]++;
-                if(myArr[1] == checkArr[1]) {
+                if (myArr[1] == checkArr[1]) {
                     checkSecret++;
                 }
                 break;
             case 'G':
                 myArr[2]++;
-                if(myArr[2] == checkArr[2]) {
+                if (myArr[2] == checkArr[2]) {
                     checkSecret++;
                 }
                 break;
             case 'T':
                 myArr[3]++;
-                if(myArr[3] == checkArr[3]) {
+                if (myArr[3] == checkArr[3]) {
                     checkSecret++;
                 }
                 break;

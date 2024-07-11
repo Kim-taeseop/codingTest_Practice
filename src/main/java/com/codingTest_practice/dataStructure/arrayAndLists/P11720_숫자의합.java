@@ -21,7 +21,7 @@ public class P11720_숫자의합 {
         char[] cNum = sNum.toCharArray();   // 숫자가 int,long의 범위를 넘어갈 수 있으므로 배열로 받음
         int sum = 0;
 
-        for (int i=0; i<N; i++){
+        for (int i = 0; i < N; i++) {
             sum += cNum[i] - '0';   // 배열의 각 자릿값을 정수형으로 변환 => 아스키코드
         }
         System.out.println(sum);

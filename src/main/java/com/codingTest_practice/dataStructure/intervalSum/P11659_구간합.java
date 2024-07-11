@@ -25,18 +25,18 @@ public class P11659_구간합 {
         int N = Integer.parseInt(stringTokenizer.nextToken());
         int M = Integer.parseInt(stringTokenizer.nextToken());
 
-        int[] A = new int[N+1];
+        int[] A = new int[N + 1];
         stringTokenizer = new StringTokenizer(bufferedReader.readLine());
 
-        for(int i =1; i<=N; i++){
-            A[i] = A[i-1] + Integer.parseInt(stringTokenizer.nextToken());
+        for (int i = 1; i <= N; i++) {
+            A[i] = A[i - 1] + Integer.parseInt(stringTokenizer.nextToken());
         }
 
-        for(int t=1; t<=M; t++){
+        for (int t = 1; t <= M; t++) {
             stringTokenizer = new StringTokenizer(bufferedReader.readLine());
             int i = Integer.parseInt(stringTokenizer.nextToken());
             int j = Integer.parseInt(stringTokenizer.nextToken());
-            System.out.println(A[j]-A[i-1]);
+            System.out.println(A[j] - A[i - 1]);
         }
     }
 }

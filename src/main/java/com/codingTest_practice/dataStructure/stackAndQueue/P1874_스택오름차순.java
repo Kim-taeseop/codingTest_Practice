@@ -17,39 +17,39 @@ import java.util.Stack;
 오름차순 수열을 만들기 위한 연산 순서를 출력. push는 + , pop은 - 로 출력, 불가능 할때는 NO를 출력
 */
 public class P1874_스택오름차순 {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int[] A = new int[N];
 
-        for(int i=0; i<N; i++){
+        for (int i = 0; i < N; i++) {
             A[i] = sc.nextInt();
         }
         Stack<Integer> stack = new Stack<>();
-        int num=1;
+        int num = 1;
         boolean result = true;
         StringBuffer bf = new StringBuffer();
-        for(int i=0; i<N; i++){
+        for (int i = 0; i < N; i++) {
             int su = A[i];
-            if(su >= num){
-                while(su>=num) {
+            if (su >= num) {
+                while (su >= num) {
                     stack.push(num++);
                     bf.append("+\n");
                 }
                 stack.pop();
                 bf.append("-\n");
-            }else {
+            } else {
                 int n = stack.pop();
-                if(n>su) {
+                if (n > su) {
                     System.out.println("NO");
                     result = false;
                     break;
-                }else {
+                } else {
                     bf.append("-\n");
                 }
             }
         }
-        if(result){
+        if (result) {
             System.out.println(bf.toString());
         }
     }

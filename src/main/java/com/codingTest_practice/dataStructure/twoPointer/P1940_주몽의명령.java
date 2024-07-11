@@ -27,24 +27,24 @@ public class P1940_주몽의명령 {
         int M = Integer.parseInt(br.readLine());
         int[] A = new int[N];
         StringTokenizer st = new StringTokenizer(br.readLine());
-        for(int i =0; i<N; i++){
+        for (int i = 0; i < N; i++) {
             A[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(A); // 배열 A를 오름차순
 
-        int count =0;
-        int sIndex=0;
-        int eIndex=N-1;
+        int count = 0;
+        int sIndex = 0;
+        int eIndex = N - 1;
 
-        while(sIndex<eIndex){
-            if(A[sIndex] + A[eIndex] == M){
-                count ++;
-                sIndex ++;
-                eIndex --;
-            } else if(A[sIndex] + A[eIndex] < M){
-                sIndex ++;
+        while (sIndex < eIndex) {
+            if (A[sIndex] + A[eIndex] == M) {
+                count++;
+                sIndex++;
+                eIndex--;
+            } else if (A[sIndex] + A[eIndex] < M) {
+                sIndex++;
             } else {
-                eIndex ++;
+                eIndex++;
             }
         }
         System.out.println(count);
