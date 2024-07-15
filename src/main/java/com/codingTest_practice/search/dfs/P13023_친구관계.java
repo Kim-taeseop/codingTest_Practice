@@ -30,37 +30,37 @@ public class P13023_친구관계 {
         visited = new boolean[N];
         A = new ArrayList[N];
 
-        for(int i=0; i<N; i++){
+        for (int i = 0; i < N; i++) {
             A[i] = new ArrayList<Integer>();
         }
 
-        for(int i=0; i<M; i++){
+        for (int i = 0; i < M; i++) {
             int s = sc.nextInt();
             int e = sc.nextInt();
             A[s].add(e);
             A[e].add(s);
         }
 
-        result =0;
+        result = 0;
         count = 0;
-        for(int i =0; i<N; i++){
-            if(!visited[i]){
+        for (int i = 0; i < N; i++) {
+            if (!visited[i]) {
                 DFS(i);
             }
         }
         System.out.println(result);
     }
 
-    private static void DFS(int v){
+    private static void DFS(int v) {
         visited[v] = true;
-        for(int i: A[v]){
-            if(!visited[i]){
-                count ++;
+        for (int i : A[v]) {
+            if (!visited[i]) {
+                count++;
                 DFS(i);
             }
         }
-        if(count >= 4){
-            result =1;
+        if (count >= 4) {
+            result = 1;
         }
     }
 }
